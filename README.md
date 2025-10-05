@@ -5,7 +5,7 @@ This project automates the creation of a SvelteKit + Tauri project using the def
 #### This script:
 
 1. Creates a SvelteKit project using `sv create`
-   1.Adds packages available within the interactive version of `sv create` using `sv add` (customization details here: [SvelteKit docs](https://svelte.dev/docs/cli/sv-add))
+1. Adds packages available within the interactive version of `sv create` using `sv add` (customization details here: [SvelteKit docs](https://svelte.dev/docs/cli/sv-add))
 
    - Note: adapter-static is required
 
