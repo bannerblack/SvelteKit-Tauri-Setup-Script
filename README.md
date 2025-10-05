@@ -155,33 +155,33 @@ Generally speaking:
 
 # SvelTauri-App
 
-SvelTauri-App/
-┣ src/
-┃ ┣ lib/
-┃ ┣ routes/
-┃ ┣ app.css
-┃ ┣ app.d.ts
-┃ ┣ app.html
-┃ ┗ demo.spec.ts
-┣ src-tauri/
-┃ ┣ capabilities/
-┃ ┣ icons/
-┃ ┣ src/
-┃ ┣ build.rs
-┃ ┣ Cargo.toml
-┃ ┗ tauri.conf.json
-┣ static/
-┃ ┗ robots.txt
-┣ .gitignore
-┣ .npmrc
-┣ .prettierignore
-┣ .prettierrc
-┣ eslint.config.js
-┣ package-lock.json
-┣ package.json
-┣ README.md
-┣ svelte.config.js
-┣ tsconfig.json
+SvelTauri-App/  
+┣ src/  
+┃ ┣ lib/  
+┃ ┣ routes/  
+┃ ┣ app.css  
+┃ ┣ app.d.ts  
+┃ ┣ app.html  
+┃ ┗ demo.spec.ts  
+┣ src-tauri/  
+┃ ┣ capabilities/  
+┃ ┣ icons/  
+┃ ┣ src/  
+┃ ┣ build.rs  
+┃ ┣ Cargo.toml  
+┃ ┗ tauri.conf.json  
+┣ static/  
+┃ ┗ robots.txt  
+┣ .gitignore  
+┣ .npmrc  
+┣ .prettierignore  
+┣ .prettierrc  
+┣ eslint.config.js  
+┣ package-lock.json  
+┣ package.json  
+┣ README.md  
+┣ svelte.config.js  
+┣ tsconfig.json  
 ┗ vite.config.ts
 
 ---
