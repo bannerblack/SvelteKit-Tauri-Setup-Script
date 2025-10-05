@@ -7,12 +7,18 @@ This project automates the creation of a SvelteKit + Tauri project using the def
 1. Creates a SvelteKit project using `sv create`
 1. Adds packages available within the interactive version of `sv create` using `sv add` (customization details here: [SvelteKit docs](https://svelte.dev/docs/cli/sv-add))
 
-   - Note: adapter-static is required
+   - Note: **adapter-static** is required
 
 1. Adds Tauri CLI tool and Tauri JS API packages (for using Tauri invoke, etc.)
-1. Installs dependencies with npm
+1. Installs dependencies with `npm`
 1. Creates a Tauri project and customizes it for use with Sveltekit using `tauri init`
-1. Adds a layout.ts file at the root route with `prerendering = true` and `ssr = false`
+1. Adds a layout.ts file in the root route with `prerendering = true` and `ssr = false`
+
+##### Soft Opinions
+
+- Uses `npm`
+- Installs specific SvelteKit add-ons from the official CLI tool
+- python required to run script
 
 ## How to Use
 
@@ -20,7 +26,7 @@ If you haven't already, install:
 
 - [Node JS](https://nodejs.org/en)
 - [Rust](https://rust-lang.org/)
-- [Tauri dependencies](https://v2.tauri.app/start/prerequisites/) (will vary depending on if you're using windows, linux, or macOs)
+- [Tauri dependencies](https://v2.tauri.app/start/prerequisites/) (will vary depending on if you're developing on windows, linux, or macOs)
 
 ### 1. Run the Script
 
@@ -35,8 +41,6 @@ python ./setup-sv-tauri.py
 ```
 
 #### Run from Command Line
-
-1. Run:
 
 ```bash
 python ./setup-sv-tauri.py "path/to/folder"
@@ -75,7 +79,10 @@ cargo tauri build
 
 ---
 
-#### Default add-ons for SvelteKit project (set in script):
+#### Default settings and add-ons for SvelteKit project (set in script):
+
+- Typescript
+- Minimal project scaffolding
 
 - Prettier
 - ESlint
@@ -85,6 +92,16 @@ cargo tauri build
 - mdsvex
 
 ---
+
+### Notes About Sveltekit and Tauri
+
+If you haven't used SvelteKit with Tauri before, you should know that this method requires Sveltekit projects to be rendered statically, which disables use of any server-side (SSR) functionality. You will essentially be using Tauri and Rust as your backend for things like authentication and database management. The plus side is that Rust is an extremely performant language and can do anything you could do with SSR, just with a little less convenience. Of course, it also gives you local file access, which is a huge benefit if it fits your use case.
+
+Generally speaking:
+
+- Use load functions to get data in layout.ts and page.ts files
+- Use client-side form validation with tauri invoke to submit forms
+- Use Tauri stores for persistent data like user settings
 
 ### Contribute
 
