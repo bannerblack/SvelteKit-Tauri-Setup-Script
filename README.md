@@ -1,6 +1,6 @@
 # Sveltekit + Tauri Setup Script
 
-This project automates the creation of a SvelteKit + Tauri project using the default Sveltekit and Tauri command line tools, meaning you are always setting up with the most up-to-date packages and generated files.
+This project automates the creation of a [SvelteKit](https://svelte.dev/docs/kit/introduction) + [Tauri](https://v2.tauri.app/) project using the default SvelteKit and Tauri command line tools, ensuring you are always setting up with the most up-to-date packages and official generated files.
 
 #### This script:
 
@@ -17,8 +17,8 @@ This project automates the creation of a SvelteKit + Tauri project using the def
 ##### Soft Opinions
 
 - Uses `npm`
-- Installs specific SvelteKit add-ons from the official CLI tool
-- python required to run script
+- Installs specific SvelteKit add-ons from the official CLI tool (see below for list)
+- Python required to run script
 
 ## How to Use
 
@@ -26,7 +26,7 @@ If you haven't already, install:
 
 - [Node JS](https://nodejs.org/en)
 - [Rust](https://rust-lang.org/)
-- [Tauri dependencies](https://v2.tauri.app/start/prerequisites/) (will vary depending on if you're developing on windows, linux, or macOs)
+- [Tauri dependencies](https://v2.tauri.app/start/prerequisites/) (will vary depending on if you're developing on windows, linux, or macOS)
 
 ### 1. Run the Script
 
@@ -40,7 +40,7 @@ If you haven't already, install:
 python ./setup-sv-tauri.py
 ```
 
-#### Run from Command Line
+#### (OR) Run from Command Line
 
 ```bash
 python ./setup-sv-tauri.py "path/to/folder"
@@ -48,10 +48,14 @@ python ./setup-sv-tauri.py "path/to/folder"
 
 **Note:** The `--clean` flag will delete and remake the provided project dir
 
+---
+
 ### 2. Edit /src-tauri/tauri.conf.json
 
 - Edit the unique identifier in tauri.conf.json to match your project
 - (Optionally) Edit the window and app name from the default, which is your folder name
+
+---
 
 ### 3. Run the project in dev mode
 
@@ -65,6 +69,8 @@ npx tauri dev
 cargo tauri dev
 ```
 
+---
+
 ### 4. Build
 
 ```bash
@@ -77,13 +83,14 @@ npx tauri build
 cargo tauri build
 ```
 
+Done!
+
 ---
 
 #### Default settings and add-ons for SvelteKit project (set in script):
 
 - Typescript
 - Minimal project scaffolding
-
 - Prettier
 - ESlint
 - TailwindCSS (+typography/forms)
@@ -100,8 +107,10 @@ If you haven't used SvelteKit with Tauri before, you should know that this metho
 Generally speaking:
 
 - Use load functions to get data in layout.ts and page.ts files
-- Use client-side form validation with tauri invoke to submit forms
+- Use client-side form validation with tauri invoke to submit forms and perform CRUD operations
 - Use Tauri stores for persistent data like user settings
+
+---
 
 ### Contribute
 
