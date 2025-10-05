@@ -1,13 +1,13 @@
 # Sveltekit + Tauri Setup Script
 
-This project automates the creation of a Sveltekit + Tauri project using the default Sveltekit and Tauri command line tools, meaning you are always installing with the most up-to-date packages and generate files.
+This project automates the creation of a Sveltekit + Tauri project using the default Sveltekit and Tauri command line tools, meaning you are always installing with the most up-to-date packages and generated files.
 
 #### This script:
 
-- Creates a sveltekit project using `sv create`
-- Adds packages available within the interactive version of of `sv create` (customize: https://svelte.dev/docs/cli/sv-add)
+- Creates a SvelteKit project using `sv create`
+- Adds packages available within the interactive version of `sv create` (customize: [SvelteKit docs](https://svelte.dev/docs/cli/sv-add))
   - Note: adapter-static is required
-- Adds Tauri CLI tool and Tauri JS API (for using Tauri invoke, etc.)
+- Adds Tauri CLI tool and Tauri JS API packages (for using Tauri invoke, etc.)
 - Installs dependencies with npm
 - Creates a Tauri project and customizes it for use with Sveltekit using `tauri init`
 - Adds a layout.ts file at the root route with `prerendering = true` and `ssr = false`
@@ -18,66 +18,70 @@ If you haven't already, install:
 
 - Node JS
 - Rust and dependencies
-- Tauri dependencies (will vary depending on if you're using windows, linux, or Macos)
+- Tauri dependencies (will vary depending on if you're using windows, linux, or macOs)
 
-### Run Manually
+### 1. Run the Script
+
+#### Manually
 
 1.  Set the `default_project_root` variable in the script to the location you want to install the project (this folder will be the root)
 
 2.  Run:
 
-```python
+```bash
 python ./setup-sv-tauri.py
 ```
 
-### Run from Command Line
+#### Run from Command Line
 
 1. Run:
 
-```python
+```bash
 python ./setup-sv-tauri.py "path/to/folder"
 ```
 
 #### Optionally:
 
-- Delete, then remake the project folder specified if it exists:
+- Delete, then remake the project folder specified if it exists using the `--clean` flag:
 
-```python
+```bash
 python ./setup-sv.tauri.py "path/to/folder" --clean
 ```
 
-### Edit tauri.conf.json
+### 2. Edit /src-tauri/tauri.conf.json
 
 - Edit the unique identifier in tauri.conf.json
 - (Optionally) Edit the window and app name from the default (folder name)
 
-### Run
+### 3. Run the project in dev mode
 
 Run from root
 
 ```bash
+- Run from root folder
 npx tauri dev
 ```
 
-or Run from src-tauri
-
 ```bash
+- Run from /src-tauri folder
 cargo tauri dev
 ```
 
-### Build
+### 4. Build
 
 ```bash
+- Build from root folder
 npx tauri build
 ```
 
 ```bash
+- Build from root folder
 cargo tauri build
 ```
 
-##
+---
 
-Default Add-ons for Svelte project:
+#### Default Add-ons for Svelte project:
 
 - Prettier
 - Eslint

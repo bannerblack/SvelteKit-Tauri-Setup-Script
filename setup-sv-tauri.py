@@ -90,10 +90,10 @@ run_command(
 with open(os.path.join(project_dir, "src", "routes", "layout.ts"), "w") as f:
     f.write("""export const prerender = true; \nexport const ssr = false;""")
 
-print("\n\n[=======================================================================================]")
-print(f"| Tauri + Sveltekit setup complete in: \n| {project_dir}")
-print("| =======================================================================================")
-print("| Before running, set the unique identifier in src-tauri/tauri.conf.json and")
-print("| change the app and windows names from the default (the project folder name).\n")
-print("| Run 'npx tauri dev' from root or 'cargo tauri dev' from the src-tauri directory.")
-print("[=======================================================================================]")
+print("\n\n=======================================================================================")
+print(f" Tauri + Sveltekit setup complete in: \n{project_dir}")
+print(" =======================================================================================")
+print(" Before running, set the unique identifier in src-tauri/tauri.conf.json and")
+print(" change the app and windows names from the default (the project folder name).\n")
+print(" Run 'npx tauri dev' from root or 'cargo tauri dev' from the src-tauri directory.")
+print("=========================================================================================")
