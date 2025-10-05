@@ -1,10 +1,10 @@
 import subprocess, os, sys, shutil, argparse
 
-# Manual Info --------------------------------------------------------------------------------------
+# Command line args and defaults ------------------------------------------------------------------------------------
 
-default_project_root = r"C:\Users\kotsu\Desktop\TestProject\Setup Script\Test"
+default_project_root = r"/path/to/your/project"
 
-# Parsing args ---------------------------------------------------------------------------
+# Define parser
 parser = argparse.ArgumentParser(description="Setup a SvelteKit + Tauri project.")
 
 # Define arguments
@@ -14,7 +14,8 @@ parser.add_argument("--clean", action="store_true", help="delete and remake the 
 # Parse arguments
 args = parser.parse_args()
 
-# Project Directory ------------------------------------------------------------------------------------------
+# Setup Project Directory -------------------------------------------------------------------------------------------
+
 if args.path:
     try:
         project_dir = os.path.abspath(args.path)
@@ -33,25 +34,26 @@ else:
 project_window_name = os.path.basename(project_dir)
 project_slug_name = project_window_name.lower().replace(" ", "-")
 
-# Clean project dir if exists and --clean is specified -----------------------------------------------------
+# Clean project dir if exists and --clean is specified
 if args.clean:
     if os.path.exists(project_dir):
         shutil.rmtree(project_dir)
 
-# Create Project Directory ----------------------------------------------------------------------------------
-
-def run_command(cmd):
-    subprocess.run(cmd, shell=True, capture_output=False, text=True)
-
+# Create Project Directory
 os.makedirs(project_dir, exist_ok=True)
 os.chdir(project_dir)
+
+# Run shell command
+def run_command(cmd):
+    subprocess.run(cmd, shell=True, capture_output=False, text=True)
 
 # Create minimal SvelteKit project
 run_command("npx sv create . --template minimal --types ts --no-add-ons --no-install")
 
-# Add features -----------------------------------------------------------------------------------------------
+# Add features ------------------------------------------------------------------------------------------------------
 # Go to https://svelte.dev/docs/cli/sv-add to customize
 
+# Command base
 addons = "npx sv add"
 
 # Prettier
@@ -59,18 +61,20 @@ addons += " prettier"
 # ESLint
 addons += " eslint"
 # Tailwind CSS with typography and forms plugins
-addons += " tailwindcss=\"plugins:typography,forms\""
+addons += " tailwindcss=plugins:typography,forms"
 # Vitest with unit test usages
-addons += " vitest=\"usages:unit\""
+addons += " vitest=usages:unit"
 # SvelteKit adapter static
-addons += " sveltekit-adapter=\"adapter:static\""
+addons += " sveltekit-adapter=adapter:static"
 # mdsvex
 addons += " mdsvex"
 # Storybook
 # addons += " storybook"
 
+addons += " --no-install --no-git-check"
+
 # Install addons
-run_command(addons + " --no-install")
+run_command(addons)
 
 # Install tauri cli and JS API
 print("[Adding Tauri packages...]")
@@ -87,11 +91,11 @@ run_command(
 )
 
 # Add layout.ts file with prerendering = true, ssr = false
-with open(os.path.join(project_dir, "src", "routes", "layout.ts"), "w") as f:
+with open(os.path.join(project_dir, "src", "routes", "+layout.ts"), "w") as f:
     f.write("""export const prerender = true; \nexport const ssr = false;""")
 
 print("\n\n=======================================================================================")
-print(f" Tauri + Sveltekit setup complete in: \n{project_dir}")
+print(f" Tauri + Sveltekit setup complete in: \n {project_dir}")
 print(" =======================================================================================")
 print(" Before running, set the unique identifier in src-tauri/tauri.conf.json and")
 print(" change the app and windows names from the default (the project folder name).\n")
