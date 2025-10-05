@@ -15,14 +15,14 @@ This python script automates the creation of a [SvelteKit](https://svelte.dev/do
 1. Creates a Tauri project and customizes it for use with SvelteKit using `tauri init`
 1. Adds a layout.ts file in the root route with `prerendering = true` and `ssr = false`
 
-> [!INFO] Soft Opinions (that you can change for your own use)
->
-> - Uses `npm`
-> - Installs specific SvelteKit add-ons from the official CLI tool (see below for list)
+##### Soft Opinions (that you can change for your own use)
+
+- Uses `npm`
+- Installs specific SvelteKit add-ons from the official CLI tool (see below for list)
 
 ## How to Use
 
-> [!Prerequisites]
+> [!NOTE]
 > If you haven't already, install:
 >
 > - [Node JS](https://nodejs.org/en)
