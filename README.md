@@ -114,38 +114,38 @@ Generally speaking:
 
 ## Project Tree
 
-📦SvelteTauri-App
-┣ 📂src
-┃ ┣ 📂lib
-┃ ┣ 📂routes
-┃ ┃ ┣ 📜+layout.svelte
-┃ ┃ ┣ 📜+layout.ts
-┃ ┃ ┗ 📜+page.svelte
-┃ ┣ 📜app.css
-┃ ┣ 📜app.d.ts
-┃ ┣ 📜app.html
-┃ ┗ 📜demo.spec.ts
-┣ 📂src-tauri
-┃ ┣ 📂capabilities
-┃ ┣ 📂icons
-┃ ┣ 📂src
-┃ ┃ ┣ 📜lib.rs
-┃ ┃ ┗ 📜main.rs
-┃ ┣ 📜.gitignore
-┃ ┣ 📜build.rs
-┃ ┣ 📜Cargo.toml
-┃ ┗ 📜tauri.conf.json
-┣ 📂static
-┣ 📜.gitignore
-┣ 📜.npmrc
-┣ 📜.prettierignore
-┣ 📜.prettierrc
-┣ 📜eslint.config.js
-┣ 📜package-lock.json
-┣ 📜package.json
-┣ 📜README.md
-┣ 📜svelte.config.js
-┣ 📜tsconfig.json
+📦SvelteTauri-App  
+┣ 📂src  
+┃ ┣ 📂lib  
+┃ ┣ 📂routes  
+┃ ┃ ┣ 📜+layout.svelte  
+┃ ┃ ┣ 📜+layout.ts  
+┃ ┃ ┗ 📜+page.svelte  
+┃ ┣ 📜app.css  
+┃ ┣ 📜app.d.ts  
+┃ ┣ 📜app.html  
+┃ ┗ 📜demo.spec.ts  
+┣ 📂src-tauri  
+┃ ┣ 📂capabilities  
+┃ ┣ 📂icons  
+┃ ┣ 📂src  
+┃ ┃ ┣ 📜lib.rs  
+┃ ┃ ┗ 📜main.rs  
+┃ ┣ 📜.gitignore  
+┃ ┣ 📜build.rs  
+┃ ┣ 📜Cargo.toml  
+┃ ┗ 📜tauri.conf.json  
+┣ 📂static  
+┣ 📜.gitignore  
+┣ 📜.npmrc  
+┣ 📜.prettierignore  
+┣ 📜.prettierrc  
+┣ 📜eslint.config.js  
+┣ 📜package-lock.json  
+┣ 📜package.json  
+┣ 📜README.md  
+┣ 📜svelte.config.js  
+┣ 📜tsconfig.json  
 ┗ 📜vite.config.ts
 
 ---
