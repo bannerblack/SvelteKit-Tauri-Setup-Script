@@ -1,32 +1,33 @@
 # Sveltekit + Tauri Setup Script
 
-This project automates the creation of a [SvelteKit](https://svelte.dev/docs/kit/introduction) + [Tauri](https://v2.tauri.app/) project using the default SvelteKit and Tauri command line tools, ensuring you are always setting up with the most up-to-date packages and official generated files.
+This python script automates the creation of a [SvelteKit](https://svelte.dev/docs/kit/introduction) + [Tauri](https://v2.tauri.app/) project using the default SvelteKit and Tauri command line tools, ensuring you are always setting up with the most up-to-date packages and official generated files.
 
 #### This script:
 
 1. Creates a SvelteKit project using `sv create`
-1. Adds packages available within the interactive version of `sv create` using `sv add` (customization details here: [SvelteKit docs](https://svelte.dev/docs/cli/sv-add))
+1. Adds packages available within the interactive version of `sv create` using `sv add`
 
+   - Customization details here: [SvelteKit docs](https://svelte.dev/docs/cli/sv-add))
    - Note: **adapter-static** is required
 
-1. Adds Tauri CLI tool and Tauri JS API packages (for using Tauri invoke, etc.)
+1. Adds the Tauri CLI and Tauri JS API packages (for using Tauri invoke, etc.)
 1. Installs dependencies with `npm`
-1. Creates a Tauri project and customizes it for use with Sveltekit using `tauri init`
+1. Creates a Tauri project and customizes it for use with SvelteKit using `tauri init`
 1. Adds a layout.ts file in the root route with `prerendering = true` and `ssr = false`
 
-##### Soft Opinions
+##### Soft Opinions (that you can change for your own use)
 
 - Uses `npm`
 - Installs specific SvelteKit add-ons from the official CLI tool (see below for list)
-- Python required to run script
 
 ## How to Use
 
-If you haven't already, install:
-
-- [Node JS](https://nodejs.org/en)
-- [Rust](https://rust-lang.org/)
-- [Tauri dependencies](https://v2.tauri.app/start/prerequisites/) (will vary depending on if you're developing on windows, linux, or macOS)
+> [!NOTE]
+> If you haven't already, install:
+>
+> - [Node JS](https://nodejs.org/en)
+> - [Rust](https://rust-lang.org/)
+> - [Tauri dependencies](https://v2.tauri.app/start/prerequisites/) (will vary depending on if you're developing on windows, linux, or macOS)
 
 ### 1. Run the Script
 
@@ -64,6 +65,8 @@ python ./setup-sv-tauri.py "path/to/folder"
 npx tauri dev
 ```
 
+OR
+
 ```bash
 # Run from /src-tauri/ folder
 cargo tauri dev
@@ -77,6 +80,8 @@ cargo tauri dev
 # Build from root folder
 npx tauri build
 ```
+
+OR
 
 ```bash
 # Build from /src-tauri/ folder
@@ -147,6 +152,37 @@ Generally speaking:
 ┣ 📜svelte.config.js  
 ┣ 📜tsconfig.json  
 ┗ 📜vite.config.ts
+
+# SvelTauri-App
+
+SvelTauri-App/
+┣ src/
+┃ ┣ lib/
+┃ ┣ routes/
+┃ ┣ app.css
+┃ ┣ app.d.ts
+┃ ┣ app.html
+┃ ┗ demo.spec.ts
+┣ src-tauri/
+┃ ┣ capabilities/
+┃ ┣ icons/
+┃ ┣ src/
+┃ ┣ build.rs
+┃ ┣ Cargo.toml
+┃ ┗ tauri.conf.json
+┣ static/
+┃ ┗ robots.txt
+┣ .gitignore
+┣ .npmrc
+┣ .prettierignore
+┣ .prettierrc
+┣ eslint.config.js
+┣ package-lock.json
+┣ package.json
+┣ README.md
+┣ svelte.config.js
+┣ tsconfig.json
+┗ vite.config.ts
 
 ---
 
